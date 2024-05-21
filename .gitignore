@@ -1,0 +1,23 @@
+# Directorio de dependencias de Maven
+target/
+
+# Archivos de configuración de IDEs
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Directorio de dependencias de Gradle
+.gradle/
+build/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Archivos de configuración local
+.env
+*.properties

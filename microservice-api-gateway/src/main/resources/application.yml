@@ -1,0 +1,31 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: microservice-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+          filters:
+            - AuthenticationFilter
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/auth/**
+  main:
+    web-application-type: reactive
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#TOKEN
+application:
+  security:
+    jwt:
+      secret-key: 05ca64d44431fba40d16fcaa06e6a483ad3018f27ed075f9b8439f73c5e3090a
